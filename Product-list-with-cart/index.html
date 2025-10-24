@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dessert Shop</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  
+  <body>
+    <main class="container">
+      <section class="menu">
+        <h1>Desserts</h1>
+        <div class="dessert-grid" id="dessertList">
+          <!-- Items will be injected by JS -->
+        </div>
+      </section>
+
+      <aside class="cart">
+        <h2>Your Cart (<span id="cartCount">0</span>)</h2>
+        <div id="cartItems" class="cart-items"></div>
+        <div class="cart-summary">
+          <p>Order Total: <span id="orderTotal">$0.00</span></p>
+          <p class="carbon">This is a <strong>carbon-neutral</strong> delivery</p>
+          <button id="confirmOrderBtn" class="confirm-btn">Confirm Order</button>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Popup Modal -->
+    <div class="modal" id="orderModal">
+      <div class="modal-content">
+        <h2>Order Summary</h2>
+        <div id="modalItems"></div>
+        <p class="modal-total">Total: <span id="modalTotal">$0.00</span></p>
+        <button id="newOrderBtn" class="new-order-btn">Start New Order</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
