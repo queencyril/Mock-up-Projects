@@ -171,14 +171,25 @@ confirmOrderBtn.addEventListener("click", () => {
 
   let total = 0;
   cart.forEach((item) => {
+    const itemTotal = item.price * item.qty;
+    total += itemTotal;
+
     const div = document.createElement("div");
-    div.innerHTML = `${item.qty}x ${item.name} - $${(item.price * item.qty).toFixed(2)}`;
+    div.classList.add("modal-item");
+    div.innerHTML = `
+      <img src="${item.img}" alt="${item.name}">
+      <div class="modal-item-details">
+        <h4>${item.name}</h4>
+        <p>${item.qty}x @$${item.price.toFixed(2)}</p>
+      </div>
+      <span>$${itemTotal.toFixed(2)}</span>
+    `;
     modalItems.appendChild(div);
-    total += item.price * item.qty;
   });
 
   modalTotal.textContent = `$${total.toFixed(2)}`;
 });
+
 
 newOrderBtn.addEventListener("click", () => {
   cart = [];

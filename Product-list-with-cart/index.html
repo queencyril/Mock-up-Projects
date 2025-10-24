@@ -25,15 +25,24 @@
       </aside>
     </main>
 
-    <!-- Popup Modal -->
-    <div class="modal" id="orderModal">
-      <div class="modal-content">
-        <h2>Order Summary</h2>
-        <div id="modalItems"></div>
-        <p class="modal-total">Total: <span id="modalTotal">$0.00</span></p>
-        <button id="newOrderBtn" class="new-order-btn">Start New Order</button>
-      </div>
+   <!-- Popup Modal -->
+<div class="modal" id="orderModal">
+  <div class="modal-content">
+    <img src="images/icon-order-confirmed.svg" alt="Order Confirmed" class="success-icon" />
+    <h2>Order Confirmed</h2>
+    <p class="subtext">We hope you enjoy your food!</p>
+
+    <div class="order-summary" id="modalItems"></div>
+
+    <div class="modal-total">
+      <p>Order Total</p>
+      <span id="modalTotal">$0.00</span>
     </div>
+
+    <button id="newOrderBtn" class="new-order-btn">Start New Order</button>
+  </div>
+</div>
+
 
     <script src="script.js"></script>
   </body>
