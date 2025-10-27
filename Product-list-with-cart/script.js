@@ -23,7 +23,7 @@ const cartSummary = document.querySelector(".cart-summary");
 
 let cart = [];
 
-// --- Display Desserts ---
+//Display Desserts
 desserts.forEach((dessert) => {
   const card = document.createElement("div");
   card.classList.add("card");
@@ -36,7 +36,7 @@ desserts.forEach((dessert) => {
   dessertList.appendChild(card);
 });
 
-// --- Add to Cart ---
+//Add to Cart
 function addToCart(id) {
   const item = desserts.find((d) => d.id === id);
   const existing = cart.find((i) => i.id === id);
@@ -50,7 +50,7 @@ function addToCart(id) {
   updateButton(id);
 }
 
-// --- Update Cart Display ---
+//Update Cart Display
 function updateCart() {
   cartItemsContainer.innerHTML = "";
   let total = 0;
@@ -65,12 +65,11 @@ function updateCart() {
     `;
     orderTotal.textContent = "$0.00";
     cartCount.textContent = 0;
-    cartSummary.style.display = "none"; // hide summary when empty
+    cartSummary.style.display = "none"; 
     return;
   }
 
-  cartSummary.style.display = "block"; // show summary when not empty
-
+  cartSummary.style.display = "block";
   cart.forEach((item) => {
     const itemTotal = item.price * item.qty;
     total += itemTotal;
@@ -92,7 +91,6 @@ function updateCart() {
   cartCount.textContent = count;
 }
 
-// --- Update Add Button to Qty Controls ---
 function updateButton(id) {
   const btn = document.getElementById(`add-btn-${id}`);
   const item = cart.find((i) => i.id === id);
@@ -108,7 +106,7 @@ function updateButton(id) {
   }
 }
 
-// --- Increment / Decrement ---
+//Increment / Decrement btn
 function increment(id) {
   const item = cart.find((i) => i.id === id);
   if (item) item.qty++;
@@ -135,7 +133,7 @@ function removeItem(id) {
   resetButton(id);
 }
 
-// --- Refresh Quantity Display on Buttons ---
+//Refresh Quantity Display on Buttons 
 function refreshQtyControls(id) {
   const item = cart.find((i) => i.id === id);
   const control = document.getElementById(`qty-controls-${id}`);
@@ -144,7 +142,7 @@ function refreshQtyControls(id) {
   }
 }
 
-// --- Reset Button when Item Removed ---
+//Reset Button when Item Removed
 function resetButton(id) {
   const card = [...document.querySelectorAll(".card")].find((c) =>
     c.innerHTML.includes(`add-btn-${id}`)
@@ -162,9 +160,9 @@ function resetButton(id) {
   card.insertBefore(btn, img.nextSibling);
 }
 
-// --- Confirm Order Modal ---
+//Confirm Order Modal
 confirmOrderBtn.addEventListener("click", () => {
-  if (cart.length === 0) return; // no modal if cart empty
+  if (cart.length === 0) return;
 
   modal.style.display = "flex";
   modalItems.innerHTML = "";
@@ -202,5 +200,4 @@ window.onclick = (e) => {
   if (e.target === modal) modal.style.display = "none";
 };
 
-// --- Initial Render ---
 updateCart();
